@@ -41,7 +41,12 @@ public class OrtoFrutta {
 	public void setStagione(String stagione) {
 		this.stagione = stagione;
 	}
+	@Override
+	public String toString() {
+		return "OrtoFrutta [prodotto=" + prodotto + ", categoria=" + categoria + "]";
+	}
 
+	
 	
 	
 }

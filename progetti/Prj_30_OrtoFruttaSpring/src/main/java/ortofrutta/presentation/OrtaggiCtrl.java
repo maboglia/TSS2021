@@ -1,5 +1,7 @@
 package ortofrutta.presentation;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,18 @@ public class OrtaggiCtrl {
 
 		@Autowired
 		private OrtoFruttaService servizio;		
+		
+		
+		@RequestMapping("")
+		public String tutti(Model model) {
+			List<OrtoFrutta> prodotti = servizio.getProdotti();
+			
+			model.addAttribute("p", prodotti);
+			
+			return "index";
+			
+		}
+		
 		
 		@RequestMapping("/{id}")
 		public String ortaggi(@PathVariable("id") int prodottoN, Model model) {
