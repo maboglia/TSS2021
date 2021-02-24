@@ -5,7 +5,7 @@ const URL_CATEGORIA = "/alimenti/find/categorie/";
 const OUT = document.getElementById('output');
 const DETAIL = document.getElementById('dettaglio');
 var listItem = "";
-console.log('test git in eclipse');
+// console.log('test git in eclipse');
 (function getCategories() {
     xhr.onreadystatechange = function() {
         console.log(xhr.readyState);
@@ -45,7 +45,7 @@ function getCategory(cat) {
             for (const alim of Obj) {
                 console.log(alim);
     
-                scheda += '<tr>' + '<td>' + alim.prodotto + '</td>'+ '<td>' + alim.energia + '</td>' + '</tr>';
+                scheda += '<tr>' + "<td onclick='getProduct(" + '"' + alim.id + '"' + ")'>" + alim.prodotto + '</td>'+ '<td>' + alim.energia + '</td>' + '</tr>';
     
             }
 
@@ -71,9 +71,9 @@ function getProduct(id) {
             let Obj = JSON.parse(xhr.responseText);
     
             for (const chiave in Obj) {
-                console.log(Obj);
+                console.log(chiave);
     
-                scheda += '<tr>' + '<td>' + chiave[prodotto] + '</td>'+ '<td>' + chiave[energia] + '</td>' + '</tr>';
+                scheda += '<tr>' + '<td>' +chiave + ': ' + Obj[chiave] + '</td>' + '</tr>';
     
             }
 
@@ -83,6 +83,6 @@ function getProduct(id) {
         }
     }
     
-    xhr.open("GET", URL_CATEGORIA + "" + id);
+    xhr.open("GET", URL + "/" + id);
     xhr.send();
 }

@@ -45,7 +45,7 @@ function getCategory(cat) {
             for (const alim of Obj) {
                 console.log(alim);
     
-                scheda += '<tr>' + '<td>' + alim.prodotto + '</td>'+ '<td>' + alim.energia + '</td>' + '</tr>';
+                scheda += '<tr>' + "<td onclick='getProduct(" + '"' + alim.id + '"' + ")'>" + alim.prodotto + '</td>'+ '<td>' + alim.energia + '</td>' + '</tr>';
     
             }
 
@@ -67,13 +67,13 @@ function getProduct(id) {
     
         if (xhr.readyState == 4 && xhr.status == 200) {
             DETAIL.innerHTML = "";
-            let scheda = "<table class='table table-striped'>";
             let Obj = JSON.parse(xhr.responseText);
+            let scheda = "<h2>" + Obj[prodotto] +"</h2>"+"<table class='table table-striped'>";
     
             for (const chiave in Obj) {
-                console.log(Obj);
+                console.log(chiave);
     
-                scheda += '<tr>' + '<td>' + chiave[prodotto] + '</td>'+ '<td>' + chiave[energia] + '</td>' + '</tr>';
+                scheda += '<tr>' + '<td>' +chiave + ': ' + Obj[chiave] + '</td>' + '</tr>';
     
             }
 
@@ -83,6 +83,6 @@ function getProduct(id) {
         }
     }
     
-    xhr.open("GET", URL_CATEGORIA + "" + id);
+    xhr.open("GET", URL + "/" + id);
     xhr.send();
 }
