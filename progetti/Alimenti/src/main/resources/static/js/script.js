@@ -17,7 +17,7 @@ xhr.onreadystatechange = function() {
         for (const alim of Obj) {
             console.log(alim);
 
-            listItem += "<li><a href='#' onclick='getOne(" + alim + ")'>" + alim + "</a></li>";
+            listItem += "<li><a href='#' onclick=getOne('" + alim + "')>" + alim + "</a></li>";
 
         }
         OUT.innerHTML = listItem;
@@ -28,6 +28,7 @@ xhr.open("GET", URL_CATEGORIE);
 xhr.send();
 
 function getOne(id) {
+    console.log(id);
     xhr.onreadystatechange = function() {
         console.log(xhr.readyState);
         console.log(xhr.status);
@@ -37,16 +38,16 @@ function getOne(id) {
             let scheda = "";
             let Obj = JSON.parse(xhr.responseText);
     
-            for (const alim in Obj) {
+            for (const alim of Obj) {
                 console.log(alim);
     
-                scheda += Obj[alim] + "<br>";
+                scheda += alim.prodotto + "<br>";
     
             }
             DETAIL.innerHTML = scheda;
         }
     }
     
-    xhr.open("GET", URL + "/" + id);
+    xhr.open("GET", URL_CATEGORIA + "" + id);
     xhr.send();
 }
