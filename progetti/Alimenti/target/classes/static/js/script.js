@@ -41,7 +41,7 @@ function getOne(id) {
             for (const alim of Obj) {
                 console.log(alim);
     
-                //scheda += Obj[alim] + "<br>";
+                scheda += alim.prodotto + "<br>";
     
             }
             DETAIL.innerHTML = scheda;
