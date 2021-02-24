@@ -1,6 +1,7 @@
 package alimentazione.integration;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -28,7 +29,17 @@ public class AlimentiRestCtrl {
 		return servizio.getAlimenti();
 	}
 
-	@GetMapping("/find/{categoria}")
+	@GetMapping("/find/categorie/all")
+	public Set<String> getCategorie(){
+		try {
+			return servizio.getCategorie();
+		} catch (Exception e) {
+			return null;
+		}
+	}	
+	
+	
+	@GetMapping("/find/categorie/{categoria}")
 	public List<Alimenti> trovaCategoria(@PathVariable("categoria") String cat){
 		try {
 			return servizio.getCategoria(cat);

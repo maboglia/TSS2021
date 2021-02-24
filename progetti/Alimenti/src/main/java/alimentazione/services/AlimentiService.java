@@ -1,7 +1,11 @@
 package alimentazione.services;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,6 +58,19 @@ public class AlimentiService implements AlimentiIService {
 		Collections.sort(findByCategoria);
 		return findByCategoria;
 		
+	}
+
+	@Override
+	public Set<String> getCategorie() {
+
+		Set<String> alimenti = new TreeSet<>();
+		
+
+		for (Alimenti alimento : this.getAlimenti()) {
+			alimenti.add(alimento.getCategoria());
+		}
+		
+		return alimenti;
 	}
 
 }
