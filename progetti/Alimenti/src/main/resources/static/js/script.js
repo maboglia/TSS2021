@@ -17,7 +17,7 @@ xhr.onreadystatechange = function() {
         for (const alim of Obj) {
             console.log(alim);
 
-            listItem += "<li><a href='#' onclick=getOne('" + alim + "')>" + alim + "</a></li>";
+            listItem += "<li><a href='#' onclick='getOne(" + '"' + alim + '"' + ")'>" + alim + "</a></li>";
 
         }
         OUT.innerHTML = listItem;
