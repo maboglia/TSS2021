@@ -68,7 +68,7 @@ function getProduct(id) {
         if (xhr.readyState == 4 && xhr.status == 200) {
             DETAIL.innerHTML = "";
             let Obj = JSON.parse(xhr.responseText);
-            let scheda = "<h2>" + Obj[prodotto] +"</h2>"+"<table class='table table-striped'>";
+            let scheda = "<h2>" + Obj.prodotto +"</h2>"+"<table class='table table-striped'>";
     
             for (const chiave in Obj) {
                 console.log(chiave);
