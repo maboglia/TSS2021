@@ -5,7 +5,7 @@ const URL_CATEGORIA = "/alimenti/find/categorie/";
 const OUT = document.getElementById('output');
 const DETAIL = document.getElementById('dettaglio');
 var listItem = "";
-console.log('test git in eclipse');
+// console.log('test git in eclipse');
 (function getCategories() {
     xhr.onreadystatechange = function() {
         console.log(xhr.readyState);
