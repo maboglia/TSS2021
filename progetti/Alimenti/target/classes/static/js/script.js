@@ -6,28 +6,60 @@ const OUT = document.getElementById('output');
 const DETAIL = document.getElementById('dettaglio');
 var listItem = "";
 
-xhr.onreadystatechange = function() {
-    console.log(xhr.readyState);
-    console.log(xhr.status);
-
-    if (xhr.readyState == 4 && xhr.status == 200) {
-        
-        let Obj = JSON.parse(xhr.responseText);
-
-        for (const alim of Obj) {
-            console.log(alim);
-
-            listItem += "<li><a href='#' onclick='getOne(" + '"' + alim + '"' + ")'>" + alim + "</a></li>";
-
+(function getCategories() {
+    xhr.onreadystatechange = function() {
+        console.log(xhr.readyState);
+        console.log(xhr.status);
+    
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            
+            let Obj = JSON.parse(xhr.responseText);
+    
+            for (const alim of Obj) {
+                console.log(alim);
+    
+                listItem += "<li><a href='#' onclick='getCategory(" + '"' + alim + '"' + ")'>" + alim + "</a></li>";
+    
+            }
+            OUT.innerHTML = listItem;
         }
-        OUT.innerHTML = listItem;
     }
+    
+    xhr.open("GET", URL_CATEGORIE);
+    xhr.send();
+     
+})()
+
+
+function getCategory(cat) {
+    console.log(cat);
+    xhr.onreadystatechange = function() {
+        console.log(xhr.readyState);
+        console.log(xhr.status);
+    
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            DETAIL.innerHTML = '';
+            let scheda = "<h2>" + cat +"</h2>"+"<table class='table table-striped'>";
+            let Obj = JSON.parse(xhr.responseText);
+    
+            for (const alim of Obj) {
+                console.log(alim);
+    
+                scheda += '<tr>' + '<td>' + alim.prodotto + '</td>'+ '<td>' + alim.energia + '</td>' + '</tr>';
+    
+            }
+
+            scheda += '</table>';
+
+            DETAIL.innerHTML = scheda;
+        }
+    }
+    
+    xhr.open("GET", URL_CATEGORIA + "" + cat);
+    xhr.send();
 }
 
-xhr.open("GET", URL_CATEGORIE);
-xhr.send();
-
-function getOne(id) {
+function getProduct(id) {
     console.log(id);
     xhr.onreadystatechange = function() {
         console.log(xhr.readyState);
@@ -38,10 +70,10 @@ function getOne(id) {
             let scheda = "<table class='table table-striped'>";
             let Obj = JSON.parse(xhr.responseText);
     
-            for (const alim of Obj) {
-                console.log(alim);
+            for (const chiave in Obj) {
+                console.log(Obj);
     
-                scheda += '<tr>' + '<td>' + alim.prodotto + '</td>'+ '<td>' + alim.energia + '</td>' + '</tr>';
+                scheda += '<tr>' + '<td>' + chiave[prodotto] + '</td>'+ '<td>' + chiave[energia] + '</td>' + '</tr>';
     
             }
 
