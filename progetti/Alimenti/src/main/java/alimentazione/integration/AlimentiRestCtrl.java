@@ -27,6 +27,15 @@ public class AlimentiRestCtrl {
 	public List<Alimenti> tutti(){
 		return servizio.getAlimenti();
 	}
+
+	@GetMapping("/{categoria}")
+	public List<Alimenti> trovaCategoria(@PathVariable("categoria") String cat){
+		try {
+			return servizio.getCategoria(cat);
+		} catch (Exception e) {
+			return null;
+		}
+	}	
 	
 	@GetMapping("/{id}")
 	public Alimenti uno(@PathVariable("id") int id){

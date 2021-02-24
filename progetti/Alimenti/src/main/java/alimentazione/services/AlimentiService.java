@@ -46,4 +46,10 @@ public class AlimentiService implements AlimentiIService {
 
 	}
 
+	@Override
+	public List<Alimenti> getCategoria(String cat) {
+		
+		return db.findByCategoria(cat);
+	}
+
 }

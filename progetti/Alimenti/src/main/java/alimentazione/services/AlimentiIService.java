@@ -8,6 +8,8 @@ public interface AlimentiIService {
 	
 	Alimenti getAlimento(int id);
 	List<Alimenti> getAlimenti();
+	List<Alimenti> getCategoria(String cat);
+
 	
 	Alimenti addAlimento(Alimenti p);
 	Alimenti updAlimento(Alimenti p);
