@@ -2,13 +2,13 @@
 
 #output {
     width: 300px;
-    border: 1px solid red;
+    border: 0px solid red;
     float: left;
 }
 
 #dettaglio {
     width: 300px;
     height: 300px;
-    border: 1px solid blue;
+    border: 0px solid blue;
     float: left;
 }

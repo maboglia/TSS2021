@@ -35,15 +35,18 @@ function getOne(id) {
     
         if (xhr.readyState == 4 && xhr.status == 200) {
             DETAIL.innerHTML = "";
-            let scheda = "";
+            let scheda = "<table class='table table-striped'>";
             let Obj = JSON.parse(xhr.responseText);
     
             for (const alim of Obj) {
                 console.log(alim);
     
-                scheda += alim.prodotto + "<br>";
+                scheda += '<tr>' + '<td>' + alim.prodotto + '</td>'+ '<td>' + alim.energia + '</td>' + '</tr>';
     
             }
+
+            scheda += '</table>';
+
             DETAIL.innerHTML = scheda;
         }
     }
