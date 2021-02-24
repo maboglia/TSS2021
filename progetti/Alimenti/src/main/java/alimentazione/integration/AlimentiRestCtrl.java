@@ -28,7 +28,7 @@ public class AlimentiRestCtrl {
 		return servizio.getAlimenti();
 	}
 
-	@GetMapping("/{categoria}")
+	@GetMapping("/find/{categoria}")
 	public List<Alimenti> trovaCategoria(@PathVariable("categoria") String cat){
 		try {
 			return servizio.getCategoria(cat);

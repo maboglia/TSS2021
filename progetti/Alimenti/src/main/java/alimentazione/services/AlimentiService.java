@@ -1,5 +1,6 @@
 package alimentazione.services;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,10 @@ public class AlimentiService implements AlimentiIService {
 	@Override
 	public List<Alimenti> getCategoria(String cat) {
 		
-		return db.findByCategoria(cat);
+		List<Alimenti> findByCategoria = db.findByCategoria(cat);
+		Collections.sort(findByCategoria);
+		return findByCategoria;
+		
 	}
 
 }

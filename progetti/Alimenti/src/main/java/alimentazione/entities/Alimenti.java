@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "alimenti")
-public class Alimenti {
+public class Alimenti implements Comparable<Alimenti> {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -67,6 +67,11 @@ public class Alimenti {
 	public String toString() {
 		return "Alimenti [id=" + id + ", categoria=" + categoria + ", prodotto=" + prodotto + ", proteine=" + proteine
 				+ ", lipidi=" + lipidi + ", carboidrati=" + carboidrati + ", energia=" + energia + "]";
+	}
+	@Override
+	public int compareTo(Alimenti altro) {
+		// TODO Auto-generated method stub
+		return this.energia - altro.energia;
 	}	
 	
 }
