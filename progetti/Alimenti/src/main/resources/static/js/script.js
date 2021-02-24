@@ -1,5 +1,7 @@
 var xhr = new XMLHttpRequest();
 const URL = "/alimenti";
+const URL_CATEGORIE = "/alimenti/find/categorie/all";
+const URL_CATEGORIA = "/alimenti/find/categorie/";
 const OUT = document.getElementById('output');
 const DETAIL = document.getElementById('dettaglio');
 var listItem = "";
@@ -15,14 +17,14 @@ xhr.onreadystatechange = function() {
         for (const alim of Obj) {
             console.log(alim);
 
-            listItem += "<li><a href='#' onclick='getOne(" + alim.id + ")'>" + alim.prodotto + "</a></li>";
+            listItem += "<li><a href='#' onclick='getOne(" + alim + ")'>" + alim + "</a></li>";
 
         }
         OUT.innerHTML = listItem;
     }
 }
 
-xhr.open("GET", URL);
+xhr.open("GET", URL_CATEGORIE);
 xhr.send();
 
 function getOne(id) {
