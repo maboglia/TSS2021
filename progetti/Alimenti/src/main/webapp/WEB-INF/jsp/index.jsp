@@ -1,12 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Dettaglio prodotto</title>
 </head>
 <body>
-	<h1>Alimenti</h1>
+	<h1>Scheda Prodotto Alimentare</h1>
+
+<table>
+
+<tr>
+	<th>Prodotto</th>
+	<th>Categoria</th>
+	<th>Calorie</th>
+
+</tr>
+
+<c:forEach items="${prodotti}" var="prodotto">
+	
+
+	<tr>
+		<td><a href="/web/prodotti/${prodotto.id}" title="Scheda dettaglio">${prodotto.prodotto}</a></td>
+		<td>${prodotto.categoria}</td>
+		<td>${prodotto.energia}</td>
+	</tr>
+
+</c:forEach>
+	
+</table>
 </body>
 </html>
