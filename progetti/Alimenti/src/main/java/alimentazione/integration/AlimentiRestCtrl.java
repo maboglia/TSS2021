@@ -41,7 +41,7 @@ public class AlimentiRestCtrl {
 		}
 	}	
 	
-	
+	@CrossOrigin	
 	@GetMapping("/find/categorie/{categoria}")
 	public List<Alimenti> trovaCategoria(@Validated @PathVariable("categoria") String cat){
 		try {
@@ -50,7 +50,7 @@ public class AlimentiRestCtrl {
 			return null;
 		}
 	}	
-	
+	@CrossOrigin	
 	@GetMapping("/{id}")
 	public Alimenti uno(@PathVariable("id") int id){
 		try {
