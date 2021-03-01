@@ -16,6 +16,7 @@
 	<th>Prodotto</th>
 	<th>Categoria</th>
 	<th>Calorie</th>
+	<th>Elimina</th>
 
 </tr>
 
@@ -26,6 +27,7 @@
 		<td><a href="/web/prodotti/${prodotto.id}" title="Scheda dettaglio">${prodotto.prodotto}</a></td>
 		<td>${prodotto.categoria}</td>
 		<td>${prodotto.energia}</td>
+		<td><a href="/web/delete/${prodotto.id}">Canc.</a></td>
 	</tr>
 
 </c:forEach>
