@@ -1,18 +1,1 @@
-Amal, El Arabi, 2000
-Ayoub, Bettaieb, 2001
-Dario, Iapicca, 1995
-Davide, Beltramo, 1997
-Diego, Pellegrino, 1998
-Emanuele, Sandrone, 1996
-Federica, Corbezzolo, 1995
-Giacomo, Mosso, 1998
-Giada, Squillaci, 1993
-Luca, Basello, 1996
-Maryam, Alimohammadi, 1987
-Matteo, Tosin, 1994
-Mattia, Vazzoler, 1989
-Mirko, Franco, 1990
-Nabil, Bougarech, 1993
-Rebecca, Ghergo, 1996
-Salvatore, Zollino, 1994
-Tommaso, Angeli, 1999
+		/* elenco nomi nascosto */
