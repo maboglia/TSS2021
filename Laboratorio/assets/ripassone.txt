@@ -1,0 +1,23 @@
+RIPASSONE
+
+fondamenti:
+	problemi
+	algoritmi: sequenze, selezioni, iterazioni
+	scriviamo
+	jdk, jre
+	
+java:
+	OOP: unità minima classe
+	classe: attributi(proprietà, fields, dati), metodi()
+	tipi: primitivi (8), reference (oggetti)
+	operatori, variabile, costanti, espressioni
+	selezioni: if, switch, ternario
+	iterazioni: for, foreach, while
+	metodi: main(), metodi ausiliari, costruttori, getters setters, sovrascrittura
+	Array, String
+	conversione tra tipi: casting e promotion
+	java.lang: wrapper classes - avvolgono i tipi primitivi e li 'trasformano' in oggetti - automaticamente	
+	JCF: ArrayList<>
+	2MVC pattern
+	incapsulamento: nascondere all'esterno le proprietà dell'oggetto
+	modificatori di accesso: 4 (-niente-, public, private, protected)

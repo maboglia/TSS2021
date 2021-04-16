@@ -1,0 +1,21 @@
+2021-01-08
+PRESENTI 16
+1) Amal, El Arabi, 20
+2) Ayoub, Bettaieb, 19
+3) Dario, Iapicca, 25
+4) Davide, Beltramo, 23
+5) Diego, Pellegrino, 22
+6) Emanuele, Sandrone, 24
+7) Federica, Corbezzolo, 25
+9) Giada, Squillaci, 27
+10) Luca, Basello, 24
+12) Matteo, Tosin, 26
+13) Mattia, Vazzoler, 31
+14) Mirko, Franco, 30
+15) Nabil, Bougarech, 27
+16) Rebecca, Ghergo, 24
+17) Salvatore, Zollino, 26
+18) Tommaso, Angeli, 21
+ASSENTI 2
+8) Giacomo, Mosso, 22
+11) Maryam, Alimohammadi, 33

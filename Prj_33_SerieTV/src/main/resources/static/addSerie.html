@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add serie</title>
+</head>
+<body>
+
+<h1>Aggiungi serie</h1>
+
+<form method="post" action="/api/serie">
+
+	<input type="hidden" name="id" value="0">
+	<input type="text" name="name" placeholder="name">
+	<input type="hidden" name="image" placeholder="image">
+	<input type="hidden" name="rating" value="0"  placeholder="rating">
+	
+	<select name="idGenere" id="idGenere">
+		<option value="">Scegli un genere</option>
+	</select>
+	
+	<input type="submit" value="aggiungi">
+
+</form>
+
+<script src="script.js"></script>
+
+
+</body>
+</html>

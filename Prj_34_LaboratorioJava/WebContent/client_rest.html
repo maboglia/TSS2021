@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form id="modulo">
+<input type="text" name="test" value="test">
+</form>
+<div id="output">
+
+
+</div>
+
+
+
+<script>
+const modulo = document.getElementById("modulo");
+const URL = "https://restcountries.eu/rest/v2/all";
+const output = document.getElementById('output');
+
+
+fetch(URL).then(e => e.json()).then(e=>
+	{
+		for (let paese of e){
+			//console.log(paese.population);
+			//name, capital, region, subregion, population, languages[].name
+			
+// 			// Build formData object.
+// 			let formData = new FormData(modulo);
+// 			formData.append('name', paese.name);
+// 			formData.append('region', paese.region);
+// 			formData.append('capital', paese.capital);
+// 			formData.append('population', paese.population);
+// 			formData.append('subregion', paese.subregion);
+// 			formData.append('languages', paese.languages[0].name);
+
+			//console.log(formData);
+			let xhttp = new XMLHttpRequest();
+			xhttp.open("POST", "/Prj_34_LaboratorioJava/rest/add", true);
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhttp.send("name="+paese.name
+					+"&capital="+paese.capital
+					+"&region="+paese.region
+					+"&subregion="+paese.subregion
+					+"&population="+paese.population
+					+"&languages="+paese.languages[0].name);
+			console.log('richiesta inviata ' + paese.name);
+			
+// 			let response =  fetch("/Prj_34_LaboratorioJava/rest/add",
+// 			    {
+// 			        body: formData,
+// 			        method: "post"
+// 			    }).then(e => 
+// 				    console.log(e)
+// 			    );
+
+		}
+	}
+
+);
+
+
+
+
+</script>
+
+</body>
+</html>

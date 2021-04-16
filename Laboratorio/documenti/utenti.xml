@@ -1,0 +1,18 @@
+<utenti>
+	<utente>
+		<nome>mauro</nome>
+		<cognome>bogliaccino</cognome>
+		<linguaggi>
+			<ling1>java</ling1>
+			<ling1>php</ling1>
+		</linguaggi>
+	</utente>
+	<utente>
+		<nome>paolo</nome>
+		<cognome>bogliaccino</cognome>
+		<linguaggi>
+			<ling1>java</ling1>
+			<ling1>php</ling1>
+		</linguaggi>
+	</utente>
+</utenti>

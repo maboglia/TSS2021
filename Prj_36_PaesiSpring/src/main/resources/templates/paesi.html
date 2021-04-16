@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Paesi del mondo</h1>
+
+<ul th:each="paese: ${paesi}">
+
+	<li th:text="${paese.name}"></li>
+
+</ul>
+</body>
+</html>
