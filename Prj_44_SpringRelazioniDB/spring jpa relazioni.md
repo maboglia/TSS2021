@@ -1,7 +1,47 @@
-# spring jpa relazioni
+# Gestire le tabelle relazionali Sql con Spring Data e JPA 
+
+Di seguito esaminiamo tre possbili relazioni tra le tabelle SQL, mostrandone la gestione con Spring Data:
+
+* One to One
+* One to Many
+* Many to Many
+
+Consideriamo tre versioni dello stesso progetto, sperimentando l'uso delle relazioni uno a uno, uno a molti e molti a molti.
+
+Vogliamo gestire una tabella di viaggi cui saranno collegati dei documenti.
+
+Inizialmente si associa un viaggio ad un solo documento.
+
+Successivamente si collega un viaggio a molti documenti.
+
+Infine si collegano molti viaggi ad un documento e un documento potrà essere collegato a molti viaggi.
+
+Il database (le tabelle documenti e viaggi) viene rigenerato ogni volta che si avvia il programma.
+
+# Configurazione del progetto
+
+## pom
+
+Aggiungere allo starter project le seguenti dipendenze:
+
+```xml
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+```
 
 
 ## application properties
+
+Il file application properties è lo stesso per tutti e tre i progetti.
 
 ```java
 #Connessione al db
@@ -19,7 +59,14 @@ spring.jpa.show-sql=true
 
 
 ```
-## DocRepo
+
+# Data access layer
+
+Il data access layer è lo stesso per tutti e tre i progetti.
+
+## DocRepo 
+
+Repository dei documenti, lo gestiamo con l'interfaccia CrudRepository.
 
 ```java
 package relazioni.repos;
@@ -32,7 +79,12 @@ public interface DocRepo extends CrudRepository<Documento, Integer> {
 
 }
 ```
+
 ## ViaggioRepo
+
+
+Repository dei viaggi, lo gestiamo con l'interfaccia CrudRepository.
+
 
 ```java
 package relazioni.repos;
@@ -51,21 +103,9 @@ public interface ViaggioRepo extends CrudRepository<Viaggio, Integer> {
 }
 
 ```
-## 
+# Esempio di Relazione OneToOne
 
-```java
 
-```
-## 
-
-```java
-
-```
-## 
-
-```java
-
-```
 ## Viaggio OneToOne
 
 ```java
@@ -132,9 +172,6 @@ public class Viaggio implements Serializable {
 	public String toString() {
 		return "Viaggio [id=" + id + ", destinazione=" + destinazione + "]";
 	}
-	
-	
-	
 }
 
 ```
@@ -197,13 +234,10 @@ public class Documento implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
-	
 }
 
 ```
-## 
+## Classe runner SpringBootApplication
 
 ```java
 package relazioni;
@@ -244,23 +278,12 @@ public class Prj44SpringRelazioniDbApplication {
 		};
 		
 	}
-
-	
-	
-	
 }
 
 ```
-## 
+# Esempio Relazione OneToMany
 
-```java
 
-```
-## 
-
-```java
-
-```
 ## Viaggio OneToMany
 
 ```java
@@ -336,6 +359,8 @@ public class Viaggio implements Serializable {
 ```
 ## Documento ManyToOne
 
+Il viaggio è uno a molti ed è proprietario della relazione, conseguentemente il documento deve essere annotato molti a uno.
+
 ```java
 package relazioni.entities;
 
@@ -400,7 +425,7 @@ public class Documento implements Serializable {
 }
 
 ```
-## 
+## Classe runner SpringBootApplication
 
 ```java
 package relazioni;
@@ -424,26 +449,6 @@ public class Prj44SpringRelazioniDbApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(Prj44SpringRelazioniDbApplication.class, args);
 	}
-
-//	@Bean
-//	public CommandLineRunner esempio1(ViaggioRepo viaggioRepo, DocRepo docRepo) {
-//		
-//		
-//		return a -> {
-//			
-//			Viaggio v = new Viaggio("Roma");
-//			Documento d = new Documento("locandina_roma.pdf");
-//			
-//			v.setDocumento(d);
-//			d.setViaggio(v);
-//			
-//			viaggioRepo.save(v);
-//			
-//			
-//			
-//		};
-//		
-//	}
 
 	@Bean
 	public CommandLineRunner esempio2(ViaggioRepo viaggioRepo, DocRepo docRepo) {
@@ -476,17 +481,11 @@ public class Prj44SpringRelazioniDbApplication {
 }
                                                                                                                                                                     
 ```
-## 
+# Esempio Relazione ManyToMany
 
-```java
-
-```
-## 
-
-```java
-
-```
 ## Viaggio ManyToMany
+
+Qui viene definita la tabella relazionale e collegate le chiavi primarie delle tabelle entità.
 
 ```java
 package relazioni.entities;
@@ -637,7 +636,7 @@ public class Documento implements Serializable {
 	
 }
 ```
-## SpringBootApplication
+## Classe runner SpringBootApplication
 
 ```java
 package relazioni;
@@ -704,6 +703,3 @@ public class Prj44SpringRelazioniDbApplication {
 }
 
 ```
-
-
-
