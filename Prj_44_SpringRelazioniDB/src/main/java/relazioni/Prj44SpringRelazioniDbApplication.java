@@ -1,7 +1,6 @@
 package relazioni;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Arrays;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -47,19 +46,29 @@ public class Prj44SpringRelazioniDbApplication {
 		return a -> {
 			
 			Viaggio v = new Viaggio("Roma");
-			Documento d = new Documento("locandina_roma.pdf");
-			Documento d2 = new Documento("foto_colosseo.jpg");
-			d.setViaggio(v);
-			d2.setViaggio(v);
-			
-			Set<Documento> docs = new HashSet<>();
-			
-			docs.add(d);
-			docs.add(d2);
-			
-			v.setDocumento(docs);
+			Viaggio v2 = new Viaggio("Napoli");
+
 			viaggioRepo.save(v);
+			viaggioRepo.save(v2);			
+
+			Documento d = new Documento("locandina_roma.pdf");
+
+			Documento d2 = new Documento("foto_vesuvio.jpg");
+
+			Documento d3 = new Documento("vademecum_viaggi.pdf");
+
+			Documento d4 = new Documento("elenco_alberghi.xls");
 			
+			
+			docRepo.saveAll(Arrays.asList(d, d2, d3, d4));
+			
+			v.getDocumenti().addAll(Arrays.asList(d, d3, d4));
+			v2.getDocumenti().addAll(Arrays.asList(d2, d3, d4));
+			
+			
+			viaggioRepo.save(v);
+			viaggioRepo.save(v2);
+
 			
 			
 		};
